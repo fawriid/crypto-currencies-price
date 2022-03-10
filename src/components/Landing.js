@@ -12,6 +12,7 @@ import styles from  './Landing.module.css'
 
 const Landing = () => {
     const [coins, setCoins] = useState([]);
+    const [search, setSearch] = useState('')
 
     useEffect(() => {
         const getApi = async () => {
@@ -23,11 +24,19 @@ const Landing = () => {
         getApi();
     }, []);
 
+
+    const searchHandler = (event) => {
+        setSearch(event.target.value)
+    }
+
+    const filteredCoins = coins.filter(coin => coin.name.includes(search))
+
     return (
         <div style={{ textAlign: "center" }}>
+            <input type='text' value={search} onChange={searchHandler} />
             {coins ?
                 <div className={styles.coinContainer}>
-                    {coins.map((coin) => <Coin  key={coin.id} data={coin} />)}
+                    {filteredCoins.map((coin) => <Coin  key={coin.id} data={coin} />)}
                 
                 </div>
                 :
