@@ -7,6 +7,9 @@ import Loading from "./Loading";
 // api
 import { getData } from "../services/api";
 
+// styles
+import styles from  './Landing.module.css'
+
 const Landing = () => {
     const [coins, setCoins] = useState([]);
 
@@ -23,7 +26,10 @@ const Landing = () => {
     return (
         <div style={{ textAlign: "center" }}>
             {coins ?
-                coins.map((coin) => <Coin  key={coin.id} data={coin} />)
+                <div className={styles.coinContainer}>
+                    {coins.map((coin) => <Coin  key={coin.id} data={coin} />)}
+                
+                </div>
                 :
                 <Loading />
             }
