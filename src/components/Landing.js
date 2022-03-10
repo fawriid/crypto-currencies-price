@@ -29,7 +29,7 @@ const Landing = () => {
         setSearch(event.target.value)
     }
 
-    const filteredCoins = coins.filter(coin => coin.name.includes(search))
+    const filteredCoins = coins.filter(coin => coin.name.toLocaleLowerCase().includes(search.toLocaleLowerCase()))
 
     return (
         <div style={{ textAlign: "center" }}>
