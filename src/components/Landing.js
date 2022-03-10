@@ -33,7 +33,7 @@ const Landing = () => {
 
     return (
         <div style={{ textAlign: "center" }}>
-            <input type='text' value={search} onChange={searchHandler} />
+            <input className={styles.searchInput} type='text' value={search} onChange={searchHandler} />
             {coins ?
                 <div className={styles.coinContainer}>
                     {filteredCoins.map((coin) => <Coin  key={coin.id} data={coin} />)}
