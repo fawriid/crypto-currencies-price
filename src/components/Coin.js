@@ -19,7 +19,7 @@ const Coin = (props) => {
                 <span className={price_change_percentage_24h > 0 ? styles.greenPriceChange : styles.redPriceChange}>
                     {price_change_percentage_24h} %
                 </span>
-                <span>$ {market_cap.toLocaleString()}</span>
+                <span className={styles.coinMarketCap}>$ {market_cap.toLocaleString()}</span>
         </div>
     );
 };
